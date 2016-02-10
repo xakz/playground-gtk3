@@ -2,7 +2,7 @@
 
 
 CC		= gcc
-CFLAGS		= $(shell pkg-config --cflags gtk+-3.0)
+CFLAGS		= -std=gnu11 -Wall -Wextra -O0 -g -Wno-unused-parameter $(shell pkg-config --cflags gtk+-3.0)
 LDLIBS		= $(shell pkg-config --libs gtk+-3.0)
 
 EXAMPLE_SRCS	= $(wildcard example*.c)
