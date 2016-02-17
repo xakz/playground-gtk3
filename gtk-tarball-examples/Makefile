@@ -1,0 +1,4 @@
+
+
+CFLAGS		= -O0 -g -Wall -Wextra -Wno-unused-parameter
+CFLAGS		+= -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
