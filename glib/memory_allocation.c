@@ -1,5 +1,4 @@
 #include <glib.h>
-#include <glib/gprintf.h>
 
 struct node {
   guint id;
@@ -15,7 +14,7 @@ int main(int argc, char *argv[])
   // fibonacci using classic memory allocation
   guint64 *fib;
   fib = g_new(guint64, 50);
-  g_printf("Allocates memory block at %p\n---\n", fib);
+  g_message("Allocates memory block at %p", fib);
   for (guint i = 0; i < 50; ++i) {
     if (i < 2) {
       fib[i] = 1;
@@ -24,10 +23,9 @@ int main(int argc, char *argv[])
     }
   }
   for (guint i = 0; i < 50; ++i) {
-    g_printf("%llu ", fib[i]);
+    g_message("%llu ", fib[i]);
   }
-  g_printf("\n");
-  g_printf("Free block at %p\n---\n", fib);
+  g_message("Free block at %p", fib);
   g_free(fib); fib = NULL;
   // display memory allocation stats
   g_mem_profile();
@@ -40,7 +38,7 @@ int main(int argc, char *argv[])
   struct node *current = &head;
   struct node *next = NULL;
 
-  g_printf("Allocates 100 blocks\n---\n");
+  g_message("Allocates 100 blocks");
   for (guint i = 0; i < 100; ++i) {
     next = g_slice_new(struct node);
     next->id = i;
@@ -50,7 +48,7 @@ int main(int argc, char *argv[])
     current = next;
   }
   g_mem_profile();
-  g_printf("Free 100 blocks\n---\n");
+  g_message("Free 100 blocks");
   g_slice_free_chain(struct node, head.next, next);
   g_mem_profile();
     
