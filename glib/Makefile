@@ -2,7 +2,7 @@
 
 
 CC		= gcc
-CFLAGS		= -std=gnu11 -Wall -Wextra -O0 -g -Wno-unused-parameter -fdiagnostics-color=auto $(shell pkg-config --cflags glib-2.0)
+CFLAGS		= -std=gnu11 -Wall -Wextra -O0 -g -fdiagnostics-color=auto $(shell pkg-config --cflags glib-2.0)
 LDLIBS		= $(shell pkg-config --libs glib-2.0)
 
 SRCS		= $(wildcard *.c)
